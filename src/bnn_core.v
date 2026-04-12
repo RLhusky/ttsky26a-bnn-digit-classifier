@@ -166,7 +166,8 @@ module bnn_core (
     // Argmax
     wire [3:0] argmax_result;
     argmax argmax_inst (
-        .scores(scores),
+        .s0(scores[0]), .s1(scores[1]), .s2(scores[2]), .s3(scores[3]), .s4(scores[4]),
+        .s5(scores[5]), .s6(scores[6]), .s7(scores[7]), .s8(scores[8]), .s9(scores[9]),
         .max_idx(argmax_result)
     );
 
