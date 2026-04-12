@@ -70,4 +70,7 @@ module tt_um_bnn_digit_classifier (
     assign uio_out[3]   = result_valid;
     assign uio_out[7:4] = 4'b0000;
 
+    // Suppress unused signal warnings
+    wire _unused = &{ena, uio_in[7:2], 1'b0};
+
 endmodule

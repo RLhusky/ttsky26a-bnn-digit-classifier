@@ -319,16 +319,16 @@ module bnn_core (
                         // Store scores (clamp to 8-bit signed: ±127)
                         // Only store valid neurons (last batch may have <4 valid)
                         if (neuron_base < 6'd10) begin
-                            scores[neuron_base] <= clamp8(ternary_mac(acc[0], w0, current_input));
+                            scores[neuron_base[3:0]] <= clamp8(ternary_mac(acc[0], w0, current_input));
                         end
                         if (neuron_base + 1 < 6'd10) begin
-                            scores[neuron_base + 1] <= clamp8(ternary_mac(acc[1], w1, current_input));
+                            scores[neuron_base[3:0] + 4'd1] <= clamp8(ternary_mac(acc[1], w1, current_input));
                         end
                         if (neuron_base + 2 < 6'd10) begin
-                            scores[neuron_base + 2] <= clamp8(ternary_mac(acc[2], w2, current_input));
+                            scores[neuron_base[3:0] + 4'd2] <= clamp8(ternary_mac(acc[2], w2, current_input));
                         end
                         if (neuron_base + 3 < 6'd10) begin
-                            scores[neuron_base + 3] <= clamp8(ternary_mac(acc[3], w3, current_input));
+                            scores[neuron_base[3:0] + 4'd3] <= clamp8(ternary_mac(acc[3], w3, current_input));
                         end
 
                         if (neuron_base >= 6'd8) begin
@@ -356,6 +356,8 @@ module bnn_core (
                     busy <= 1'b0;
                     state <= S_IDLE;
                 end
+
+                default: state <= S_IDLE;
 
             endcase
         end
