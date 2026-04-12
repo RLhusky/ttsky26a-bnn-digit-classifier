@@ -62,7 +62,7 @@ module bnn_core (
         .w0(w_l2_0), .w1(w_l2_1), .w2(w_l2_2), .w3(w_l2_3)
     );
     weight_rom_out wrom_out (
-        .neuron_base(neuron_base[3:0]), .input_idx(input_idx[5:0]),
+        .neuron_base(neuron_base[3:0]), .input_idx(input_idx[6:0]),
         .w0(w_out_0), .w1(w_out_1), .w2(w_out_2), .w3(w_out_3)
     );
 
