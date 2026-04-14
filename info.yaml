@@ -3,12 +3,12 @@ project:
   title:        "BNN Digit Classifier"
   author:       "Nicholas Fong"
   discord:      ""
-  description:  "Binary neural network MNIST digit classifier — 94% accuracy, 23K ternary weights"
+  description:  "Binary neural network MNIST digit classifier — 94% accuracy, 1-MAC serial engine"
   language:     "Verilog"
   clock_hz:     10000000    # 10 MHz
 
   # How many tiles your design occupies? A single tile is about 167x108 uM.
-  tiles: "6x2"
+  tiles: "4x2"
 
   # Your top module name must start with "tt_um_". Make it unique by including your github username:
   top_module:  "tt_um_bnn_digit_classifier"
@@ -22,8 +22,6 @@ project:
     - "weight_rom_l1.v"
     - "weight_rom_l2.v"
     - "weight_rom_out.v"
-    - "threshold_rom_l1.v"
-    - "threshold_rom_l2.v"
 
 pinout:
   # Inputs

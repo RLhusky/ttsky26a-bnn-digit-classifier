@@ -127,7 +127,7 @@ async def run_inference(dut, pixel_codes):
     dut.ui_in.value = 0
 
     # Wait for result_valid
-    timeout = 10000
+    timeout = 25000
     for _ in range(timeout):
         await RisingEdge(dut.clk)
         if int(dut.uo_out.value) & 0x10:  # bit 4 = result_valid
@@ -157,7 +157,7 @@ async def test_basic_inference(dut):
 @cocotb.test()
 async def test_reference_match(dut):
     """Test 100 MNIST images against Python reference model."""
-    clock = Clock(dut.clk, 100, unit="ns")
+    clock = Clock(dut.clk, 100, units="ns")
     cocotb.start_soon(clock.start())
     await reset_dut(dut)
 
@@ -196,7 +196,7 @@ async def test_reference_match(dut):
 @cocotb.test()
 async def test_full_mnist(dut):
     """Full 10K MNIST test — verify accuracy matches training report."""
-    clock = Clock(dut.clk, 100, unit="ns")
+    clock = Clock(dut.clk, 100, units="ns")
     cocotb.start_soon(clock.start())
 
     weights = load_weights()

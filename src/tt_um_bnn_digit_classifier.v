@@ -1,10 +1,3 @@
-/*
- * Copyright (c) 2026 Nicholas Fong
- * SPDX-License-Identifier: Apache-2.0
- */
-
-`default_nettype none
-
 // Top-level Tiny Tapeout wrapper for BNN Digit Classifier
 // TTSKY26a shuttle interface
 //
@@ -69,8 +62,5 @@ module tt_um_bnn_digit_classifier (
     assign uio_out[2]   = busy;
     assign uio_out[3]   = result_valid;
     assign uio_out[7:4] = 4'b0000;
-
-    // Suppress unused signal warnings
-    wire _unused = &{ena, uio_in[7:2], 1'b0};
 
 endmodule
