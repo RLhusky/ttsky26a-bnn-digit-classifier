@@ -53,7 +53,7 @@ module bnn_core (
         .neuron_idx(neuron_idx), .input_idx(input_idx), .weight(w_l2)
     );
     weight_rom_out wrom_out (
-        .neuron_idx(neuron_idx[3:0]), .input_idx(input_idx[6:0]), .weight(w_out)
+        .neuron_idx(neuron_idx[3:0]), .input_idx(input_idx[5:0]), .weight(w_out)
     );
 
     // Select weight based on current layer
